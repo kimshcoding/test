@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>숫자 더하기</title>
+</head>
+
+<body>
+
+    <script>
+        // 사용자로부터 3개의 숫자를 입력받기
+        var number1 = parseFloat(prompt("첫 번째 숫자를 입력하세요:"));
+        var number2 = parseFloat(prompt("두 번째 숫자를 입력하세요:"));
+        var number3 = parseFloat(prompt("세 번째 숫자를 입력하세요:"));
+
+        // 입력받은 숫자들을 더하기
+        var sum = number1 + number2 + number3;
+
+        // 결과를 웹 페이지에 출력
+        document.write("<h2>입력받은 숫자들:</h2>");
+        document.write("<p>" + number1 + ", " + number2 + ", " + number3 + "</p>");
+        document.write("<h2>숫자들의 합:</h2>");
+        document.write("<p>" + sum + "</p>");
+    </script>
+
+</body>
+
+</html>

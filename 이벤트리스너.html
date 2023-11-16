@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>DOM 이벤트 다루기</title>
+    <style>
+        /* CSS 스타일링: 테이블 셀에 포인터 커서 설정 */
+        td {
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 헤더와 테이블 생성 -->
+    <h2 id="title">이벤트 리스너 등록하기</h2>
+    <hr>
+    <table border="1">
+        <tr>
+            <td>1</td>
+            <td>2</td>
+            <td>3</td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td id="here">5</td>
+            <td>6</td>
+        </tr>
+        <tr>
+            <td>7</td>
+            <td>8</td>
+            <td>9</td>
+        </tr>
+    </table>
+
+    <script>
+        // id가 title인 요소 클릭 시 배경이 노란색으로 변경
+        document.getElementById("title").addEventListener("click", function () {
+            this.style.backgroundColor = "yellow";
+        });
+
+        // 테이블에서 홀수 행 마우스 오버 시 배경이 하늘색으로 변경
+        let rows = document.querySelectorAll("tr:nth-child(odd)");
+        rows.forEach(function (row) {
+            // 홀수 행 마우스 오버 이벤트 등록
+            row.addEventListener("mouseover", function () {
+                this.style.backgroundColor = "skyblue";
+            });
+
+            // 홀수 행 마우스 아웃 이벤트 등록
+            row.addEventListener("mouseout", function () {
+                this.style.backgroundColor = "";
+            });
+        });
+
+
+        // 테이블에서 짝수 행 마우스 오버 시 배경이 밝은 회색으로 변경
+        let evenRows = document.querySelectorAll("tr:nth-child(even)");
+        evenRows.forEach(function (row) {
+         // 짝수 행 마우스 오버 이벤트 등록
+        row.addEventListener("mouseover", function () {
+            this.style.backgroundColor = "lightgray";
+        });
+
+             // 짝수 행 마우스 아웃 이벤트 등록
+            row.addEventListener("mouseout", function () {
+                this.style.backgroundColor = "";
+            });
+        });
+
+        // id가 here인 요소 마우스 오버 시 글자 크기가 두 배로 커짐
+        document.getElementById("here").addEventListener("mouseover", function () {
+            this.style.fontSize = "2em";
+        });
+
+        // id가 here인 요소 마우스 아웃 시 글자 크기 원래대로
+        document.getElementById("here").addEventListener("mouseout", function () {
+            this.style.fontSize = "";
+        });
+
+        // 모든 셀들 클릭 시 자신의 텍스트를 alert으로 띄움
+        let cells = document.querySelectorAll("td");
+        cells.forEach(function (cell) {
+            // 각 셀 클릭 이벤트 등록
+            cell.addEventListener("click", function () {
+                alert(this.innerText);
+            });
+        });
+    </script>
+</body>
+
+</html>
